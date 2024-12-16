@@ -14,7 +14,7 @@ namespace legs
 		bool inRoom;
 
         private readonly string[] targetNames =
-{
+	{
             "shoulder.L",
             "shoulder.R"
         };
@@ -53,31 +53,31 @@ namespace legs
         }
 
         void Start()
-		{
+	{
             Newtilla.Newtilla.OnJoinModded += OnModdedJoin;
             Newtilla.Newtilla.OnLeaveModded += OnModdedLeave; 
             HarmonyPatches.ApplyHarmonyPatches();
-			GorillaTagger.OnPlayerSpawned(Initialized);
-		}
+	    GorillaTagger.OnPlayerSpawned(Initialized);
+	}
 
-		void Initialized()
-		{
+	void Initialized()
+	{
         }
 
-		[ModdedGamemodeJoin]        
-		public void OnModdedJoin(string gamemode)
-		{
+	[ModdedGamemodeJoin]        
+	public void OnModdedJoin(string gamemode)
+	{
             legs(); // applies legs 
             Debug.Log("Enabled Legs"); // debug logs
             inRoom = true;
 		}
 
-		[ModdedGamemodeLeave]
-		public void OnModdedLeave(string gamemode)
-		{
+	[ModdedGamemodeLeave]
+	public void OnModdedLeave(string gamemode)
+	{
             arms(); // applies arms 
             Debug.Log("Disabled Legs"); // debug logs
             inRoom = false;
-		}
+	}
 	}
 }
