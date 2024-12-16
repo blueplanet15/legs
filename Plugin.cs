@@ -26,7 +26,6 @@ namespace legs
                 if (MatchesTargetName(obj.name)) // makes it apply to everyone with the target names 
                 {
                     obj.transform.localPosition = new Vector3(-0.0183f, 0.0759f, 0.0791f); // moves the shoulder to the 'leg spot'
-                    GorillaLocomotion.Player.Instance.transform.localScale = new Vector3(1.65f, 1.65f, 1.65f); // gives ya long arms so it actually looks like u have legs
                 }
             }
         }
@@ -37,7 +36,6 @@ namespace legs
                 if (MatchesTargetName(obj.name)) // makes it apply to everyone with the target names 
                 {
                     obj.transform.localPosition = new Vector3(-0.0183f, 0.3432f, 0.0791f); // moves the shoulder back to the og spot
-                    GorillaLocomotion.Player.Instance.transform.localScale = new Vector3(1f, 1f, 1f); // removes the long arms ofc so it isnt cheating
                 }
             }
         }
