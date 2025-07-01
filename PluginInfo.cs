@@ -5,7 +5,7 @@
 	/// </summary>
 	class PluginInfo
 	{
-		public const string GUID = "defaultuser0.legs";
+		public const string GUID = "defaultuser0.BPGT.legs";
 		public const string Name = "legs";
 		public const string Version = "1.0.0";
 	}
