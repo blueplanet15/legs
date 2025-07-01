@@ -1,9 +1,6 @@
-﻿using System;
 using BepInEx;
-using legs;
 using UnityEngine;
-using Utilla;
-using Newtilla;
+using Utilla.Attributes;
 
 namespace legs
 {
@@ -11,14 +8,15 @@ namespace legs
 	[ModdedGamemode]
 	public class Plugin : BaseUnityPlugin
 	{
-		bool inRoom;
-
+ 
+	bool inRoom;
+ 	
         private readonly string[] targetNames =
-	{
+		{
             "shoulder.L",
             "shoulder.R"
         };
-
+	
         private void legs()
         {
             foreach (GameObject obj in Resources.FindObjectsOfTypeAll<GameObject>())
@@ -29,6 +27,7 @@ namespace legs
                 }
             }
         }
+	
         private void arms()
         {
             foreach (GameObject obj in Resources.FindObjectsOfTypeAll<GameObject>())
@@ -54,8 +53,6 @@ namespace legs
 
         void Start()
 	{
-            Newtilla.Newtilla.OnJoinModded += OnModdedJoin;
-            Newtilla.Newtilla.OnLeaveModded += OnModdedLeave; 
             HarmonyPatches.ApplyHarmonyPatches();
 	    GorillaTagger.OnPlayerSpawned(Initialized);
 	}
@@ -67,16 +64,16 @@ namespace legs
 	[ModdedGamemodeJoin]        
 	public void OnModdedJoin(string gamemode)
 	{
-            legs(); // applies legs 
-            Debug.Log("Enabled Legs"); // debug logs
+ 	    legs();
+	    Debug.Log("Enabled Legs");
             inRoom = true;
-		}
+	}
 
 	[ModdedGamemodeLeave]
 	public void OnModdedLeave(string gamemode)
 	{
-            arms(); // applies arms 
-            Debug.Log("Disabled Legs"); // debug logs
+ 	    arms();
+            Debug.Log("Disabled Legs");
             inRoom = false;
 	}
 	}
